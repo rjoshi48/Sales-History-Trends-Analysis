@@ -1,0 +1,41 @@
+-- 1. Monthly, quarterly, and annual Sales of products worldwide
+SELECT [Measures].[Amount Sold]  on columns,
+NON EMPTY (
+	[Dim Date].[C Year].[C Year],
+	[Dim Date].[D Qtr No].[D Qtr No],
+	[Dim Date].[D Month Name].[D Month Name],
+	[Dim Products].[Prod Name].[Prod Name],
+	[Dim Location].[Country Name].[Country Name]
+	) on rows
+FROM [Cube_SalesHistory_Products];
+GO
+
+--2. Impact of promotions on annual sales 
+SELECT [Measures].[Amount Sold]  on columns,
+NON EMPTY (
+		[Dim Date].[C Year].[C Year],
+		[Dim Promotions].[Promo Category].[Promo Category],
+		[Dim Promotions].[Promo Name].[Promo Name]
+	)on rows
+FROM [Cube_SalesHistory_Products]
+GO
+
+-- 3. Maximum sales a customer can make in a year
+SELECT  [Measures].[Maximum Amount Sold] on columns,
+NON EMPTY (
+		[Dim Date].[C Year].[C Year],
+		[Dim Customers].[Cust Full Name].[Cust Full Name]
+	)on rows
+FROM [Cube_SalesHistory_Products]
+
+-- 4. Sales data over the past year, quarter, and month
+SELECT [Measures].[Amount Sold]  on columns,
+NON EMPTY (
+		[Dim Date].[C Year].[C Year],
+		[Dim Date].[D Qtr No].[D Qtr No],
+		[Dim Date].[D Month Name].[D Month Name]
+	)on rows
+FROM [Cube_SalesHistory_Products]
+
+
+
