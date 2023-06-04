@@ -8,3 +8,6 @@
 - The Sales History (SH) schema must be designed to facilitate efficient querying and analysis of the data.
 - The solution should also provide robust security measures to ensure the confidentiality and integrity of the data.
 
+Datawarehouse Model:
+https://github.com/rjoshi48/Sales-History-Trends-Analysis/blob/main/ERD_DW_SalesHistory.png
+
